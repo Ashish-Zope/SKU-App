@@ -5,12 +5,16 @@ using System.Text;
 
 namespace SKU_App
 {
-  public  class PromotionRepository
+    delegate void PromotionRulesDel(List<Cart> cart);
+    public  class PromotionRepository
     {
        private List<Promotion> promotionList;
+       private PromotionRules rules;
+        
         public PromotionRepository()
         {
             promotionList = new List<Promotion>();
+            rules = new PromotionRules();
             bindPromotionList();
         }
 
@@ -33,10 +37,14 @@ namespace SKU_App
 
         public void applyPromotionPrice(List<Cart> cart)
         {
-
+           calculatePrice(cart, rules.Promotion_1);
+           calculatePrice(cart, rules.Promotion_2);
+           calculatePrice(cart, rules.Promotion_3);
         }
-
-
-
+        //apply promotion 
+        private void calculatePrice(List<Cart> cart,PromotionRulesDel promotion)
+        {
+            promotion(cart);
+        }
     }
 }

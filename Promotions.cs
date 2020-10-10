@@ -8,5 +8,7 @@ namespace SKU_App
     {
         public int PromotionId { get; set; }
         public string PromotionName { get; set; }
+
+        public int promotionPrice { get; set; }
     }
 }

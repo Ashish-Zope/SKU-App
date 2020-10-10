@@ -35,7 +35,6 @@ namespace SKU_App
         }
         public int getOrderTotal()
         {
-
             return cart.Sum(s => s.TotalPrice);
         }
     }

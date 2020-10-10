@@ -20,7 +20,7 @@ namespace SKU_App
                 new Sku{Id=1,SkuName="A",price=50},
                 new Sku{Id=2,SkuName="B",price=30},
                 new Sku{Id=3,SkuName="C",price=20},
-                new Sku{Id=3,SkuName="D",price=15},
+                new Sku{Id=4,SkuName="D",price=15},
             };
         }
         public List<Sku> getSkuList()
