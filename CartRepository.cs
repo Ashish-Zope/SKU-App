@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SKU_App
 {
-    public class CartRepository
+    public class CartRepository: ICartRepository
     {
         private List<Cart> cart;
         public CartRepository()

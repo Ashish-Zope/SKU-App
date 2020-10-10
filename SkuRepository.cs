@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SKU_App
 {
-    public class SkuRepository
+    public class SkuRepository: ISkuRepository
     {
         private List<Sku> skuList;
         public SkuRepository()

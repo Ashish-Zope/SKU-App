@@ -5,12 +5,14 @@ namespace SKU_App
 {
     class Program
     {
-        SkuRepository skuRepository = new SkuRepository();
-        PromotionRepository promotionRepository = new PromotionRepository();
-        CartRepository cartRepository = new CartRepository();
-        Program()
+        ISkuRepository skuRepository;
+        IPromotionRepository promotionRepository;
+        ICartRepository cartRepository; 
+      public  Program()
         {
-
+            skuRepository = new SkuRepository();
+            promotionRepository = new PromotionRepository();
+            cartRepository= new CartRepository();
         }
         static void Main(string[] args)
         {
@@ -31,7 +33,7 @@ namespace SKU_App
 
             while (true)
             {
-                Console.WriteLine("welcome to Promotion Engine.......\n");
+                Console.WriteLine("Welcome to Promotion Engine.......\n");
                 Console.WriteLine("SKU List.");
                 //print the SKU list
                 var skuList = skuRepository.getSkuList();

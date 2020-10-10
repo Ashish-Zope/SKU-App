@@ -6,7 +6,7 @@ using System.Text;
 namespace SKU_App
 {
     delegate void PromotionRulesDel(List<Cart> cart);
-    public class PromotionRepository
+    public class PromotionRepository: IPromotionRepository
     {
         private List<Promotion> promotionList;
         private PromotionRules rules;
