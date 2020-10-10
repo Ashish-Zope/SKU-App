@@ -9,13 +9,10 @@ namespace SKU_App
         public List<Promotion> PromotionList{ get; set; }
         static void Main(string[] args)
         {
-
-            PromotionRepository p = new PromotionRepository();
-            var pl=p.getPromotionList();
-            Console.WriteLine("Sku App Start");
+           initilize();
         }
 
-        public void initilize()
+        static void initilize()
         {
 
 
