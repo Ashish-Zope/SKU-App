@@ -30,5 +30,13 @@ namespace SKU_App
         {
             return promotionList.FirstOrDefault(f => f.PromotionId == id);
         }
+
+        public void applyPromotionPrice(List<Cart> cart)
+        {
+
+        }
+
+
+
     }
 }

@@ -42,7 +42,7 @@ namespace SKU_App
                 Console.WriteLine("SKU Name\t\tPrice\t\tTotal");
                 foreach (var item in cart)
                 {
-                    Console.WriteLine("{0}\t\t\t{1}\t\t{2}\n", item.SkuName, item.price,item.TotalPrice);
+                    Console.WriteLine("{0}\t\t\t{1}*{3}\t\t{2}\n", item.SkuName, item.price,item.TotalPrice,item.itemCount);
                 }
                 Console.WriteLine("Total.\t\t\t\t\t{0}", cartRepository.getOrderTotal());
 
