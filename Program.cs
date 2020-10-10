@@ -61,8 +61,10 @@ namespace SKU_App
                 Console.WriteLine("Please enter SKU id to add new item in cart or enter c to close.");
                 int skuId = 0;
                 string input = Console.ReadLine();
+                if (input.ToUpper() == "C")
+                break;
                 bool result = int.TryParse(input, out skuId);
-
+               
                 //clear the screen. 
                 Console.Clear();
                 if (result)
