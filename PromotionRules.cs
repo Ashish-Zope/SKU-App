@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SKU_App
 {
-   public class PromotionRules
+    public class PromotionRules
     {
         public void Promotion_1(List<Cart> cart)
         {
@@ -23,7 +23,7 @@ namespace SKU_App
                 }
             }
         }
-        public void  Promotion_2(List<Cart> cart)
+        public void Promotion_2(List<Cart> cart)
         {
 
             //get the cart values if id is 2 .
@@ -39,14 +39,14 @@ namespace SKU_App
                 }
             }
         }
-        public void  Promotion_3(List<Cart> cart)
+        public void Promotion_3(List<Cart> cart)
         {
             int itemCId = 3;
             int itemDId = 4;
             int promotionValue = 30;
             var itemC = cart.FirstOrDefault(s => s.Id == itemCId);
             var itemD = cart.FirstOrDefault(s => s.Id == itemDId);
-            if (itemC != null && itemD!=null)
+            if (itemC != null && itemD != null)
             {
                 int minCount = Math.Min(itemC.itemCount, itemD.itemCount);
                 //calculate the price for item c
@@ -56,10 +56,7 @@ namespace SKU_App
                 //add the total in cart.
                 itemC.TotalPrice = itemCTotal;
                 itemD.TotalPrice = itemDTotal;
-
             }
-
-
         }
     }
 }

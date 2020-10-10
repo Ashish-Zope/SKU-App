@@ -5,10 +5,10 @@ using System.Text;
 
 namespace SKU_App
 {
-   public class CartRepository
+    public class CartRepository
     {
-       private List<Cart> cart;
-     public   CartRepository()
+        private List<Cart> cart;
+        public CartRepository()
         {
             cart = new List<Cart>();
         }
@@ -26,7 +26,7 @@ namespace SKU_App
 
                 }
                 else
-                    this.cart.Add(new Cart {Id=sku.Id,SkuName=sku.SkuName,price=sku.price,itemCount=1,TotalPrice=sku.price });
+                    this.cart.Add(new Cart { Id = sku.Id, SkuName = sku.SkuName, price = sku.price, itemCount = 1, TotalPrice = sku.price });
             }
         }
         public List<Cart> getList()

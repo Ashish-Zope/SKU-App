@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SKU_App
 {
-  public  class Sku
+    public class Sku
     {
         public int Id { get; set; }
         public string SkuName { get; set; }

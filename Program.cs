@@ -5,29 +5,40 @@ namespace SKU_App
 {
     class Program
     {
-        public List<Sku> SkuList { get; }
-        public List<Promotion> PromotionList{ get; set; }
+        SkuRepository skuRepository = new SkuRepository();
+        PromotionRepository promotionRepository = new PromotionRepository();
+        CartRepository cartRepository = new CartRepository();
+        Program()
+        {
+
+        }
         static void Main(string[] args)
         {
-                initilize();
-                 
+            try
+            {
+                Program p = new Program();
+                p.initilize();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
         }
 
-        static void initilize()
+        void initilize()
         {
-            SkuRepository skuRepository = new SkuRepository();
-            PromotionRepository promotionRepository = new PromotionRepository();
-            CartRepository cartRepository = new CartRepository();
+
             while (true)
-            {   
-                Console.WriteLine("welcome to e Promotion Engine.......\n");
+            {
+                Console.WriteLine("welcome to Promotion Engine.......\n");
                 Console.WriteLine("SKU List.");
                 //print the SKU list
                 var skuList = skuRepository.getSkuList();
-                Console.WriteLine("SKU          Price()");
+                Console.WriteLine("Id\t\tSKU\t\tPrice");
                 foreach (var item in skuList)
                 {
-                    Console.WriteLine("{0}              {1}", item.SkuName, item.price);
+                    Console.WriteLine("{0}\t\t{1}\t\t{2}", item.Id, item.SkuName, item.price);
                 }
                 //print the promotion list
                 var promotions = promotionRepository.getPromotionList();
@@ -42,16 +53,27 @@ namespace SKU_App
                 Console.WriteLine("SKU Name\t\tPrice\t\tTotal");
                 foreach (var item in cart)
                 {
-                    Console.WriteLine("{0}\t\t\t{1}*{3}\t\t{2}\n", item.SkuName, item.price,item.TotalPrice,item.itemCount);
+                    Console.WriteLine("{0}\t\t\t{1}*{3}\t\t{2}\n", item.SkuName, item.price, item.TotalPrice, item.itemCount);
                 }
                 Console.WriteLine("Total.\t\t\t\t\t{0}", cartRepository.getOrderTotal());
-                Console.WriteLine("Please enter SKU id to add item in cart.");
-                int skuId = int.Parse(Console.ReadLine());
-                cartRepository.addSku(skuId);
-                //get the order list from cart and apply promotion.
-                promotionRepository.applyPromotionPrice(cartRepository.getList());
+                Console.WriteLine("Please enter SKU id to add new item in cart or enter c to close.");
+                int skuId = 0;
+                string input = Console.ReadLine();
+                bool result = int.TryParse(input, out skuId);
 
+                //clear the screen. 
                 Console.Clear();
+                if (result)
+                {
+                    cartRepository.addSku(skuId);
+                    //get the order list from cart and apply promotion.
+                    promotionRepository.applyPromotionPrice(cartRepository.getList());
+                }
+                else
+                {
+                    Console.WriteLine("Invalid Input.");
+                }
+
             }
         }
     }

@@ -5,10 +5,10 @@ using System.Text;
 
 namespace SKU_App
 {
-   public class SkuRepository
+    public class SkuRepository
     {
-       private List<Sku> skuList;
-       public SkuRepository()
+        private List<Sku> skuList;
+        public SkuRepository()
         {
             this.skuList = new List<Sku>();
             bindSku();
